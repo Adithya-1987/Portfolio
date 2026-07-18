@@ -61,8 +61,11 @@ export default function Hero() {
           </div>
 
           <p className="max-w-md text-base text-white/70 md:text-lg">
-            Placeholder tagline — swap this for a one-line description of what
-            you build and who for.
+            <span className="font-vt text-xl text-[#39ff14] md:text-2xl">
+              $ whoami
+            </span>{' '}
+            → AI/ML engineer building full-stack products, mentoring 200+
+            students along the way.
           </p>
 
           <BlueRedPurpleReveal
