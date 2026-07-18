@@ -35,7 +35,8 @@ src/
 
 - Base background: dark navy `#0A0E1A`
 - Accent colors (Tailwind theme, `src/index.css` `@theme` block): `accent-blue`
-  `#2E6BFF`, `accent-red` `#E63946`, `accent-purple` `#A855F7`
+  `#2E6BFF`, `accent-red` `#E63946`, `accent-purple` `#A855F7`, `accent-green`
+  `#39FF14` (terminal/code accents — Hero name, PixelTransition, About)
 - `<GlassCard glow="blue|red|purple" hoverScale>` — the base glass surface
   used everywhere. `glow` tints the border/shadow on hover, `hoverScale`
   lifts + scales the card slightly.
