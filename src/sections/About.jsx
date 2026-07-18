@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import GlassCard from '../components/GlassCard';
+import SectionHeading from '../components/SectionHeading';
 
 const PROMPT = '$ cat about.txt';
 const TYPE_SPEED = 45; // ms per character
@@ -72,9 +73,7 @@ export default function About() {
 
   return (
     <SectionWrapper id="about">
-      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
-        About Me
-      </h2>
+      <SectionHeading text="About Me" />
       <GlassCard className="mx-auto max-w-xl p-8">
         <p
           ref={promptRef}

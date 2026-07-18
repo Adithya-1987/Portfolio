@@ -1,6 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
 import GlassCard from '../components/GlassCard';
+import SectionHeading from '../components/SectionHeading';
 
 // Cycle through the three accents so the grid stays visually balanced.
 // Replace title/description/link with your real projects.
@@ -38,9 +39,7 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <SectionWrapper id="projects">
-      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
-        Projects
-      </h2>
+      <SectionHeading text="Projects" />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {PROJECTS.map(({ title, description, link, glow }) => (
           <GlassCard

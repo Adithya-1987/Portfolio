@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
 import GlassCard from '../components/GlassCard';
+import SectionHeading from '../components/SectionHeading';
 
 // Swap icons/labels for your real stack — order doesn't matter, grid wraps automatically.
 const SKILLS = [
@@ -26,9 +27,7 @@ const SKILLS = [
 export default function Skills() {
   return (
     <SectionWrapper id="skills">
-      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
-        Skills
-      </h2>
+      <SectionHeading text="Skills" />
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {SKILLS.map(({ icon: Icon, label }) => (
           <GlassCard

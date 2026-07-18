@@ -3,6 +3,7 @@ import { Code2, Briefcase, Mail, MessageCircle } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
 import GlassCard from '../components/GlassCard';
 import Button from '../components/Button';
+import SectionHeading from '../components/SectionHeading';
 
 // lucide-react dropped brand/logo icons — these generic stand-ins are
 // placeholders. Swap in real brand SVGs (e.g. simple-icons) later if wanted.
@@ -31,9 +32,7 @@ export default function Contact() {
 
   return (
     <SectionWrapper id="contact">
-      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
-        Contact
-      </h2>
+      <SectionHeading text="Contact" />
       <GlassCard className="flex flex-col gap-8 p-8 md:flex-row md:p-12">
         <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-4">
           <input
