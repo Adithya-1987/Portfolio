@@ -72,10 +72,10 @@ export default function About() {
 
   return (
     <SectionWrapper id="about">
-      <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
+      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
         About Me
       </h2>
-      <GlassCard className="mx-auto max-w-[480px] p-8">
+      <GlassCard className="mx-auto max-w-xl p-8">
         <p
           ref={promptRef}
           className="font-share-tech text-sm text-accent-green md:text-base"

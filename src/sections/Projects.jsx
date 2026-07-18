@@ -38,7 +38,7 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <SectionWrapper id="projects">
-      <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
+      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
         Projects
       </h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

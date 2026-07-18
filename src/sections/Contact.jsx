@@ -31,7 +31,7 @@ export default function Contact() {
 
   return (
     <SectionWrapper id="contact">
-      <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
+      <h2 className="font-vt mb-8 text-4xl tracking-wide text-accent-green md:text-5xl">
         Contact
       </h2>
       <GlassCard className="flex flex-col gap-8 p-8 md:flex-row md:p-12">
