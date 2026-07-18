@@ -1,0 +1,210 @@
+/* ---------------------------------------------------------------------- */
+/* Retro Win95/98 desktop chrome. Self-contained; tweak the palette vars   */
+/* below to re-skin the whole desktop.                                      */
+/* ---------------------------------------------------------------------- */
+.retro {
+  --retro-teal: #008080;
+  --retro-face: #c0c0c0;
+  --retro-face-light: #dfdfdf;
+  --retro-white: #ffffff;
+  --retro-gray: #808080;
+  --retro-black: #0a0a0a;
+  --retro-title-a: #000080;
+  --retro-title-b: #1084d0;
+
+  font-family: Tahoma, 'MS Sans Serif', Geneva, Verdana, system-ui, sans-serif;
+  font-size: 13px;
+  color: #000;
+  -webkit-font-smoothing: none;
+}
+
+/* The bounded "screen" the whole desktop lives inside. */
+.retro-screen {
+  position: relative;
+  overflow: hidden;
+  background: var(--retro-teal);
+  box-shadow:
+    inset -1px -1px var(--retro-black),
+    inset 1px 1px var(--retro-white),
+    inset -2px -2px var(--retro-gray),
+    inset 2px 2px var(--retro-face-light);
+}
+
+/* Raised bevel — buttons, window frames, taskbar. */
+.retro-raised {
+  background: var(--retro-face);
+  box-shadow:
+    inset -1px -1px var(--retro-black),
+    inset 1px 1px var(--retro-white),
+    inset -2px -2px var(--retro-gray),
+    inset 2px 2px var(--retro-face-light);
+}
+
+.retro-pressed {
+  box-shadow:
+    inset 1px 1px var(--retro-black),
+    inset -1px -1px var(--retro-white),
+    inset 2px 2px var(--retro-gray),
+    inset -2px -2px var(--retro-face-light);
+}
+
+/* Sunken bevel — content wells, inputs, status bars. */
+.retro-sunken {
+  background: var(--retro-white);
+  box-shadow:
+    inset -1px -1px var(--retro-white),
+    inset 1px 1px var(--retro-gray),
+    inset -2px -2px var(--retro-face-light),
+    inset 2px 2px var(--retro-black);
+}
+
+/* Window shell. */
+.retro-window {
+  background: var(--retro-face);
+  box-shadow:
+    inset -1px -1px var(--retro-black),
+    inset 1px 1px var(--retro-face-light),
+    inset -2px -2px var(--retro-gray),
+    inset 2px 2px var(--retro-white);
+}
+
+.retro-titlebar {
+  background: linear-gradient(
+    90deg,
+    var(--retro-title-a),
+    var(--retro-title-b)
+  );
+  color: #fff;
+}
+
+.retro-titlebar--inactive {
+  background: linear-gradient(90deg, #7a7a7a, #b0b0b0);
+  color: #d8d8d8;
+}
+
+/* Small title-bar control button (min / max / close). */
+.retro-titlebtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 14px;
+  background: var(--retro-face);
+  color: #000;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow:
+    inset -1px -1px var(--retro-black),
+    inset 1px 1px var(--retro-white),
+    inset -2px -2px var(--retro-gray),
+    inset 2px 2px var(--retro-face-light);
+}
+.retro-titlebtn:active {
+  box-shadow:
+    inset 1px 1px var(--retro-black),
+    inset -1px -1px var(--retro-white),
+    inset 2px 2px var(--retro-gray),
+    inset -2px -2px var(--retro-face-light);
+}
+
+/* Menu bar text ("File  Edit  View  Help"). */
+.retro-menubar {
+  display: flex;
+  gap: 2px;
+  padding: 1px 2px;
+  font-size: 12px;
+}
+.retro-menubar span {
+  padding: 2px 6px;
+  cursor: default;
+}
+.retro-menubar span:hover {
+  background: var(--retro-title-a);
+  color: #fff;
+}
+.retro-menubar u {
+  text-decoration: underline;
+}
+
+/* Desktop icon (label under glyph). */
+.retro-desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 74px;
+  padding: 4px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+.retro-desktop-icon span {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.15;
+  padding: 0 2px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.retro-desktop-icon:focus-visible span,
+.retro-desktop-icon.is-selected span {
+  background: var(--retro-title-a);
+  outline: 1px dotted #fff;
+}
+
+/* Retro form controls. */
+.retro-input {
+  background: #fff;
+  border: none;
+  padding: 3px 4px;
+  font-family: Tahoma, 'MS Sans Serif', system-ui, sans-serif;
+  font-size: 13px;
+  color: #000;
+  outline: none;
+  box-shadow:
+    inset -1px -1px var(--retro-white),
+    inset 1px 1px var(--retro-gray),
+    inset -2px -2px var(--retro-face-light),
+    inset 2px 2px var(--retro-black);
+}
+
+.retro-btn {
+  background: var(--retro-face);
+  border: none;
+  padding: 4px 12px;
+  font-family: Tahoma, 'MS Sans Serif', system-ui, sans-serif;
+  font-size: 13px;
+  color: #000;
+  cursor: pointer;
+  box-shadow:
+    inset -1px -1px var(--retro-black),
+    inset 1px 1px var(--retro-white),
+    inset -2px -2px var(--retro-gray),
+    inset 2px 2px var(--retro-face-light);
+}
+.retro-btn:active {
+  box-shadow:
+    inset 1px 1px var(--retro-black),
+    inset -1px -1px var(--retro-white),
+    inset 2px 2px var(--retro-gray),
+    inset -2px -2px var(--retro-face-light);
+}
+.retro-btn:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+/* Bouncing "Ask Adithya" wordmark letters. */
+@keyframes retro-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-14px);
+  }
+}
+.retro-wordmark-letter {
+  display: inline-block;
+  animation: retro-bounce 1.8s ease-in-out infinite;
+}
