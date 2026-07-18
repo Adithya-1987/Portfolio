@@ -3,7 +3,14 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import BlueRedPurpleReveal from '../components/BlueRedPurpleReveal';
 import DecryptedText from '../components/DecryptedText';
+import PixelTransition from '../components/PixelTransition';
 import heroPortrait from '../assets/hero-portrait.webp';
+
+const HELLO_JAVA = `public class Hello {
+  public static void main(String[] args) {
+    System.out.println("Hello!!");
+  }
+}`;
 
 const NAME_LINES = ['GUGULOTH', 'ADITHYA', 'JADHAV'];
 const DECRYPT_SPEED = 35; // ms per revealed character
@@ -33,7 +40,7 @@ export default function Hero() {
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center px-6 py-24"
     >
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-between lg:gap-16">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 lg:flex-row lg:justify-center lg:gap-10">
         <div className="flex min-w-0 flex-col items-center gap-6 text-center lg:items-start lg:text-left">
           <div className="font-vt leading-[0.95] tracking-widest text-[#39ff14]">
             {NAME_LINES.map((line) => (
@@ -45,7 +52,7 @@ export default function Hero() {
                   sequential
                   revealDirection="center"
                   speed={DECRYPT_SPEED}
-                  parentClassName="text-5xl sm:text-6xl md:text-7xl"
+                  parentClassName="text-6xl sm:text-7xl md:text-8xl"
                   className="drop-shadow-[0_0_14px_rgba(57,255,20,0.85)]"
                   encryptedClassName="text-[#39ff14]/40"
                 />
@@ -68,13 +75,29 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-          className="w-full max-w-md shrink-0 overflow-hidden rounded-[20px] border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.35)] lg:max-w-lg"
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="w-full max-w-lg shrink-0 lg:max-w-xl"
         >
-          <img
-            src={heroPortrait}
-            alt="Portrait of Guguloth Adithya Jadhav"
-            className="h-auto w-full"
+          <PixelTransition
+            firstContent={
+              <img
+                src={heroPortrait}
+                alt="Portrait of Guguloth Adithya Jadhav"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            }
+            secondContent={
+              <div className="flex h-full w-full items-center justify-center bg-[#0a0e1a] p-6">
+                <pre className="font-vt text-lg leading-snug text-[#39ff14] sm:text-xl md:text-2xl">
+                  {HELLO_JAVA}
+                </pre>
+              </div>
+            }
+            gridSize={12}
+            pixelColor="#39ff14"
+            animationStepDuration={0.4}
+            aspectRatio="56.2%"
+            className="w-full rounded-[20px] border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
           />
         </motion.div>
       </div>
