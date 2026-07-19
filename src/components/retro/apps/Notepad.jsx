@@ -1,8 +1,12 @@
-const BIO =
-  "Hey, I'm Adithya — I build ML models and agentic AI systems, and ship the full-stack web products that put them in front of people. I mentor at CIE, where I've helped 200+ students turn ideas into real, shipped projects. Tech gets me genuinely excited — I pick up new stacks fast, and once I do, I move efficiently. Currently: building, teaching, leveling up.";
+const DEFAULT_BODY = 'This file is empty.';
 
-/** Notepad-style viewer opened from File Manager's readme.txt. */
-export default function Notepad() {
+/**
+ * Notepad-style viewer. Renders whatever document it's opened with (bio from
+ * readme.txt, or a project README from the projects folder).
+ *
+ * @param {{ body: string }} [doc]
+ */
+export default function Notepad({ doc }) {
   return (
     <div className="flex flex-1 flex-col">
       <div className="retro-menubar">
@@ -20,10 +24,10 @@ export default function Notepad() {
         </span>
       </div>
 
-      <div className="m-0.5 flex-1 overflow-auto bg-white retro-sunken p-3">
-        <p className="font-jetbrains text-[13px] leading-[1.6] whitespace-pre-wrap text-black">
-          {BIO}
-        </p>
+      <div className="m-0.5 max-h-[280px] flex-1 overflow-auto bg-white retro-sunken p-3">
+        <pre className="font-jetbrains text-[13px] leading-[1.6] whitespace-pre-wrap text-black">
+          {doc?.body ?? DEFAULT_BODY}
+        </pre>
       </div>
     </div>
   );

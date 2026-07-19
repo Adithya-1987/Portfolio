@@ -77,24 +77,6 @@ export default function InternetExplorer({ onNavigate }) {
 
   return (
     <div className="flex flex-1 flex-col bg-white">
-      <div className="retro-menubar bg-[#c0c0c0]">
-        <span>
-          <u>F</u>ile
-        </span>
-        <span>
-          <u>E</u>dit
-        </span>
-        <span>
-          <u>V</u>iew
-        </span>
-        <span>
-          <u>G</u>o
-        </span>
-        <span>
-          <u>H</u>elp
-        </span>
-      </div>
-
       {/* Address bar */}
       <div className="flex items-center gap-2 bg-[#c0c0c0] px-2 py-1 text-[12px]">
         <span className="text-black/60">Address</span>

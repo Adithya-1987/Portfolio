@@ -87,6 +87,8 @@ export default function RetroDesktop() {
   const [openApps, setOpenApps] = useState([]); // open order (taskbar)
   const [zStack, setZStack] = useState([]); // z order (last = top)
   const [minimized, setMinimized] = useState({});
+  // Document currently shown in the (single) Notepad window.
+  const [notepadDoc, setNotepadDoc] = useState(null);
 
   const focusApp = useCallback((id) => {
     setZStack((s) => [...s.filter((x) => x !== id), id]);
@@ -128,6 +130,14 @@ export default function RetroDesktop() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const openNotepad = useCallback(
+    (doc) => {
+      setNotepadDoc(doc);
+      openApp('notepad');
+    },
+    [openApp],
+  );
+
   const renderApp = (id) => {
     switch (id) {
       case 'my-computer':
@@ -137,13 +147,17 @@ export default function RetroDesktop() {
       case 'browser':
         return <InternetExplorer onNavigate={navigateToSection} />;
       case 'file-manager':
-        return <FileManager onOpenReadme={() => openApp('notepad')} />;
+        return <FileManager onOpenReadme={openNotepad} />;
       case 'notepad':
-        return <Notepad />;
+        return <Notepad doc={notepadDoc} />;
       default:
         return null;
     }
   };
+
+  // Notepad's title reflects the open document.
+  const windowTitle = (id) =>
+    id === 'notepad' ? (notepadDoc?.title ?? APP_META.notepad.title) : APP_META[id].title;
 
   const startApps = Object.entries(APP_META)
     .filter(([, meta]) => meta.onDesktop)
@@ -151,7 +165,7 @@ export default function RetroDesktop() {
 
   const tasks = openApps.map((id) => ({
     id,
-    title: APP_META[id].title,
+    title: windowTitle(id),
     icon: APP_META[id].icon,
   }));
 
@@ -178,7 +192,7 @@ export default function RetroDesktop() {
           return (
             <RetroWindow
               key={id}
-              title={meta.title}
+              title={windowTitle(id)}
               icon={meta.icon}
               width={meta.width}
               initialPos={meta.pos}
