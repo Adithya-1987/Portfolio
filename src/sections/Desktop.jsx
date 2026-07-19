@@ -1,7 +1,11 @@
+import { lazy, Suspense } from 'react';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionHeading from '../components/SectionHeading';
-import RetroDesktop from '../components/retro/RetroDesktop';
-import CrtMonitorFrame from '../components/retro/CrtMonitorFrame';
+import ErrorBoundary from '../components/ErrorBoundary';
+
+// Code-split: the 3D monitor pulls in @react-three/fiber + drei. Lazy-load it
+// and wrap in an ErrorBoundary so a WebGL failure degrades gracefully.
+const Crt3DMonitor = lazy(() => import('../components/retro/Crt3DMonitor'));
 
 export default function Desktop() {
   return (
@@ -12,11 +16,13 @@ export default function Desktop() {
           <SectionHeading text="Desktop" />
         </div>
 
-        {/* Right: CRT monitor housing the retro desktop */}
+        {/* Right: 3D CRT monitor housing the live retro desktop */}
         <div className="w-full lg:w-2/3">
-          <CrtMonitorFrame>
-            <RetroDesktop showHint={false} />
-          </CrtMonitorFrame>
+          <ErrorBoundary fallback={null}>
+            <Suspense fallback={null}>
+              <Crt3DMonitor />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </div>
     </SectionWrapper>

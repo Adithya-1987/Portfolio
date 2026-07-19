@@ -24,7 +24,9 @@ const AppErrorFallback = (
       <p style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>
         Something went wrong rendering the page.
       </p>
-      <p style={{ opacity: 0.7 }}>Try refreshing — details are in the console.</p>
+      <p style={{ opacity: 0.7 }}>
+        Try refreshing — details are in the console.
+      </p>
     </div>
   </div>
 );

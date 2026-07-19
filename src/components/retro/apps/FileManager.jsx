@@ -122,7 +122,9 @@ export default function FileManager({ onOpenReadme }) {
                 onClick={() => setSelected(entry.name)}
                 onDoubleClick={() => openEntry(entry)}
                 className={`flex w-[92px] cursor-default flex-col items-center gap-1 p-1 text-center ${
-                  selected === entry.name ? 'bg-[#000080] text-white' : 'text-black'
+                  selected === entry.name
+                    ? 'bg-[#000080] text-white'
+                    : 'text-black'
                 }`}
                 title="Double-click to open"
               >
@@ -141,7 +143,9 @@ export default function FileManager({ onOpenReadme }) {
       </div>
 
       <div className="mt-0.5 flex text-[12px]">
-        <div className="retro-sunken px-2 py-0.5">C: 1.78GB free, 1.99GB total</div>
+        <div className="retro-sunken px-2 py-0.5">
+          C: 1.78GB free, 1.99GB total
+        </div>
         <div className="ml-0.5 flex-1 retro-sunken px-2 py-0.5">
           Total {fileCount} file(s)
         </div>

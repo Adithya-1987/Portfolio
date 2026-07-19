@@ -83,7 +83,10 @@ function useIsMobile() {
   return mobile;
 }
 
-export default function RetroDesktop({ showHint = true }) {
+export default function RetroDesktop({
+  showHint = true,
+  transparentScreen = false,
+}) {
   const mobile = useIsMobile();
   const [openApps, setOpenApps] = useState([]); // open order (taskbar)
   const [zStack, setZStack] = useState([]); // z order (last = top)
@@ -158,7 +161,9 @@ export default function RetroDesktop({ showHint = true }) {
 
   // Notepad's title reflects the open document.
   const windowTitle = (id) =>
-    id === 'notepad' ? (notepadDoc?.title ?? APP_META.notepad.title) : APP_META[id].title;
+    id === 'notepad'
+      ? (notepadDoc?.title ?? APP_META.notepad.title)
+      : APP_META[id].title;
 
   const startApps = Object.entries(APP_META)
     .filter(([, meta]) => meta.onDesktop)
@@ -174,14 +179,21 @@ export default function RetroDesktop({ showHint = true }) {
     <div className="retro">
       <div
         className="retro-screen h-[300px] w-full sm:h-[330px] md:h-[360px]"
-        style={{
-          backgroundColor: 'var(--retro-teal)',
-          // Quote the URL — Vite inlines the SVG as a data URI whose commas/
-          // parens would otherwise break an unquoted url() and get dropped.
-          backgroundImage: `url("${wallpaper}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={
+          transparentScreen
+            ? // In the 3D monitor the wallpaper lives on a lit mesh behind the
+              // Html overlay, so the screen itself is transparent (icons/
+              // windows only).
+              { backgroundColor: 'transparent', boxShadow: 'none' }
+            : {
+                backgroundColor: 'var(--retro-teal)',
+                // Quote the URL — Vite inlines the SVG as a data URI whose
+                // commas/parens would otherwise break an unquoted url().
+                backgroundImage: `url("${wallpaper}")`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }
+        }
       >
         {/* Desktop icons — top-left 2×2 grid (fits the smaller screen) */}
         <div className="absolute left-2 top-2 grid grid-cols-2 gap-x-1 gap-y-1">

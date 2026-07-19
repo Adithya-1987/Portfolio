@@ -51,38 +51,38 @@ export default function Navbar() {
         className="navbar-star w-full max-w-3xl"
       >
         <nav className="flex w-full items-center justify-between rounded-full border border-white/15 bg-white/[0.08] px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-lg">
-        <span className="text-sm font-semibold tracking-wide text-white">
-          Your Name
-        </span>
+          <span className="text-sm font-semibold tracking-wide text-white">
+            Your Name
+          </span>
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map(({ id, label }) => (
-            <li key={id}>
-              <button
-                type="button"
-                onClick={() => scrollToSection(id)}
-                className={`rounded-full px-4 py-1.5 text-sm transition-colors duration-300 ${
-                  active === id
-                    ? 'bg-white/15 text-white'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
+          {/* Desktop links */}
+          <ul className="hidden items-center gap-1 md:flex">
+            {NAV_LINKS.map(({ id, label }) => (
+              <li key={id}>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection(id)}
+                  className={`rounded-full px-4 py-1.5 text-sm transition-colors duration-300 ${
+                    active === id
+                      ? 'bg-white/15 text-white'
+                      : 'text-white/60 hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="text-white md:hidden"
-          aria-label="Toggle menu"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className="text-white md:hidden"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </nav>
       </StarBorder>
 

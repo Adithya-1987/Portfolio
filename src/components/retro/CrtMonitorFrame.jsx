@@ -10,7 +10,8 @@ export default function CrtMonitorFrame({ children }) {
       <div
         className="relative w-full rounded-[26px] p-3 pb-6 sm:p-4 sm:pb-8"
         style={{
-          background: 'linear-gradient(150deg, #f1ecdf 0%, #ded8c6 55%, #cec7b2 100%)',
+          background:
+            'linear-gradient(150deg, #f1ecdf 0%, #ded8c6 55%, #cec7b2 100%)',
           boxShadow:
             '0 18px 40px rgba(0,0,0,0.45), inset 0 3px 5px rgba(255,255,255,0.7), inset 0 -6px 10px rgba(0,0,0,0.18)',
         }}
