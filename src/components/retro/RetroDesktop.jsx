@@ -82,7 +82,7 @@ function useIsMobile() {
   return mobile;
 }
 
-export default function RetroDesktop() {
+export default function RetroDesktop({ showHint = true }) {
   const mobile = useIsMobile();
   const [openApps, setOpenApps] = useState([]); // open order (taskbar)
   const [zStack, setZStack] = useState([]); // z order (last = top)
@@ -219,10 +219,12 @@ export default function RetroDesktop() {
         />
       </div>
 
-      <p className="mt-3 text-center text-xs text-white/50">
-        Double-click an icon to open an app. Try the Terminal or search in
-        Internet Explorer.
-      </p>
+      {showHint && (
+        <p className="mt-3 text-center text-xs text-white/50">
+          Double-click an icon to open an app. Try the Terminal or search in
+          Internet Explorer.
+        </p>
+      )}
     </div>
   );
 }
