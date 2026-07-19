@@ -5,7 +5,7 @@
  */
 export default function CrtMonitorFrame({ children }) {
   return (
-    <div className="flex w-full flex-col items-center">
+    <div className="mx-auto flex w-full max-w-[480px] flex-col items-center">
       {/* Monitor casing */}
       <div
         className="relative w-full rounded-[26px] p-3 pb-6 sm:p-4 sm:pb-8"

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import StarBorder from './StarBorder';
 
 const NAV_LINKS = [
   { id: 'hero', label: 'Home' },
@@ -42,7 +43,14 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
-      <nav className="flex w-full max-w-3xl items-center justify-between rounded-full border border-white/15 bg-white/[0.08] px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-lg">
+      <StarBorder
+        as="div"
+        color="cyan"
+        speed="5s"
+        thickness={3}
+        className="navbar-star w-full max-w-3xl"
+      >
+        <nav className="flex w-full items-center justify-between rounded-full border border-white/15 bg-white/[0.08] px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-lg">
         <span className="text-sm font-semibold tracking-wide text-white">
           Your Name
         </span>
@@ -75,7 +83,8 @@ export default function Navbar() {
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
-      </nav>
+        </nav>
+      </StarBorder>
 
       {/* Mobile menu panel */}
       <AnimatePresence>

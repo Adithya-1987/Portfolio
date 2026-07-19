@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice">
+  <!-- Original "rolling green hill under a blue sky" illustration (not a copy
+       of any photograph) — evokes the classic desktop-wallpaper vibe. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7fd1" />
+      <stop offset="0.55" stop-color="#5aa7e6" />
+      <stop offset="1" stop-color="#c3e6f6" />
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8dc63f" />
+      <stop offset="0.5" stop-color="#5fa430" />
+      <stop offset="1" stop-color="#3d7a1f" />
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.4" />
+    </filter>
+  </defs>
+
+  <rect width="320" height="240" fill="url(#sky)" />
+
+  <!-- Clouds -->
+  <g fill="#ffffff" filter="url(#soft)">
+    <g opacity="0.92">
+      <ellipse cx="66" cy="54" rx="34" ry="12" />
+      <ellipse cx="92" cy="47" rx="22" ry="10" />
+      <ellipse cx="44" cy="60" rx="20" ry="9" />
+    </g>
+    <g opacity="0.85">
+      <ellipse cx="244" cy="40" rx="40" ry="13" />
+      <ellipse cx="212" cy="46" rx="20" ry="9" />
+      <ellipse cx="272" cy="48" rx="18" ry="8" />
+    </g>
+    <ellipse cx="152" cy="82" rx="26" ry="8" opacity="0.7" />
+  </g>
+
+  <!-- Rolling hill -->
+  <path
+    d="M0 158 C 80 118, 220 118, 320 150 L 320 240 L 0 240 Z"
+    fill="url(#hill)"
+  />
+  <path
+    d="M0 170 C 90 134, 230 132, 320 160 L 320 240 L 0 240 Z"
+    fill="#6bb03a"
+    opacity="0.45"
+  />
+</svg>

@@ -15,6 +15,7 @@ import {
   FolderIcon,
   TextFileIcon,
 } from './icons';
+import wallpaper from '../../assets/wallpaper.svg';
 
 // Static app registry. `onDesktop` apps get a desktop icon + Start-menu entry;
 // notepad is launched only from File Manager's readme.txt.
@@ -171,9 +172,19 @@ export default function RetroDesktop({ showHint = true }) {
 
   return (
     <div className="retro">
-      <div className="retro-screen h-[560px] w-full sm:h-[600px] md:h-[640px]">
-        {/* Desktop icons — top-left vertical stack */}
-        <div className="absolute left-2 top-2 flex flex-col gap-1">
+      <div
+        className="retro-screen h-[300px] w-full sm:h-[330px] md:h-[360px]"
+        style={{
+          backgroundColor: 'var(--retro-teal)',
+          // Quote the URL — Vite inlines the SVG as a data URI whose commas/
+          // parens would otherwise break an unquoted url() and get dropped.
+          backgroundImage: `url("${wallpaper}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Desktop icons — top-left 2×2 grid (fits the smaller screen) */}
+        <div className="absolute left-2 top-2 grid grid-cols-2 gap-x-1 gap-y-1">
           {DESKTOP_ICONS.map((d) => (
             <DesktopIcon
               key={d.id}

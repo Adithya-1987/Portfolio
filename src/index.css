@@ -59,3 +59,19 @@ body {
 .terminal-cursor {
   animation: terminal-blink 1s steps(1, end) infinite;
 }
+
+/* StarBorder tuned for the navbar: pill-shaped, and let the glass nav show
+   through instead of the component's default solid-black inner box. */
+/* .star-border-container also sets border-radius, so match its specificity. */
+.star-border-container.navbar-star {
+  display: block;
+  border-radius: 9999px;
+}
+.navbar-star .inner-content {
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 9999px;
+  text-align: left;
+}
