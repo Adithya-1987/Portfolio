@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import GlassCard from '../components/GlassCard';
-import SectionHeading from '../components/SectionHeading';
+import SectionLayout from '../components/SectionLayout';
 
 const PROMPT = '$ cat about.txt';
 const TYPE_SPEED = 45; // ms per character
@@ -73,41 +73,42 @@ export default function About() {
 
   return (
     <SectionWrapper id="about">
-      <SectionHeading text="About Me" />
-      <GlassCard className="mx-auto max-w-xl p-8">
-        <p
-          ref={promptRef}
-          className="font-share-tech text-sm text-accent-green md:text-base"
-        >
-          {typedPrompt}
-          <span className="terminal-cursor" aria-hidden="true">
-            _
-          </span>
-        </p>
+      <SectionLayout heading="About Me">
+        <GlassCard className="mx-auto max-w-xl p-8">
+          <p
+            ref={promptRef}
+            className="font-share-tech text-sm text-accent-green md:text-base"
+          >
+            {typedPrompt}
+            <span className="terminal-cursor" aria-hidden="true">
+              _
+            </span>
+          </p>
 
-        <motion.p
-          initial={hiddenPose}
-          animate={revealStep >= 1 ? visiblePose : hiddenPose}
-          transition={revealTransition}
-          className="font-jetbrains mt-4 text-sm leading-[1.7] text-white/60"
-        >
-          {BIO}
-        </motion.p>
+          <motion.p
+            initial={hiddenPose}
+            animate={revealStep >= 1 ? visiblePose : hiddenPose}
+            transition={revealTransition}
+            className="font-jetbrains mt-4 text-sm leading-[1.7] text-white/60"
+          >
+            {BIO}
+          </motion.p>
 
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          {STATS.map(({ label, accent }, i) => (
-            <motion.span
-              key={label}
-              initial={hiddenPose}
-              animate={revealStep >= i + 2 ? visiblePose : hiddenPose}
-              transition={revealTransition}
-              className={`rounded-full border px-3 py-1 text-xs font-medium ${PILL_ACCENT_CLASSES[accent]}`}
-            >
-              {label}
-            </motion.span>
-          ))}
-        </div>
-      </GlassCard>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {STATS.map(({ label, accent }, i) => (
+              <motion.span
+                key={label}
+                initial={hiddenPose}
+                animate={revealStep >= i + 2 ? visiblePose : hiddenPose}
+                transition={revealTransition}
+                className={`rounded-full border px-3 py-1 text-xs font-medium ${PILL_ACCENT_CLASSES[accent]}`}
+              >
+                {label}
+              </motion.span>
+            ))}
+          </div>
+        </GlassCard>
+      </SectionLayout>
     </SectionWrapper>
   );
 }

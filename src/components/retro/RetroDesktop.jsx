@@ -28,7 +28,7 @@ const APP_META = {
     onDesktop: true,
   },
   terminal: {
-    title: 'Terminal',
+    title: 'Skills',
     icon: <TerminalIcon size={16} />,
     width: 560,
     pos: { x: 116, y: 54 },
@@ -59,7 +59,7 @@ const APP_META = {
 
 const DESKTOP_ICONS = [
   { id: 'my-computer', icon: <ComputerIcon size={36} />, label: 'My Computer' },
-  { id: 'terminal', icon: <TerminalIcon size={36} />, label: 'Terminal' },
+  { id: 'terminal', icon: <TerminalIcon size={36} />, label: 'Skills' },
   {
     id: 'browser',
     icon: <GlobeIcon size={36} />,
@@ -158,7 +158,9 @@ export default function RetroDesktop({ showHint = true }) {
 
   // Notepad's title reflects the open document.
   const windowTitle = (id) =>
-    id === 'notepad' ? (notepadDoc?.title ?? APP_META.notepad.title) : APP_META[id].title;
+    id === 'notepad'
+      ? (notepadDoc?.title ?? APP_META.notepad.title)
+      : APP_META[id].title;
 
   const startApps = Object.entries(APP_META)
     .filter(([, meta]) => meta.onDesktop)
@@ -173,7 +175,7 @@ export default function RetroDesktop({ showHint = true }) {
   return (
     <div className="retro">
       <div
-        className="retro-screen h-[300px] w-full sm:h-[330px] md:h-[360px]"
+        className="retro-screen h-[307px] w-full sm:h-[337px] md:h-[367px]"
         style={{
           backgroundColor: 'var(--retro-teal)',
           // Quote the URL — Vite inlines the SVG as a data URI whose commas/
